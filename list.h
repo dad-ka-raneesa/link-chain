@@ -16,6 +16,8 @@ typedef struct
 
 #define INPUT_TEXT "Please enter a number:"
 
+Node *create_node(int value);
+void insert_node(List *list, int value);
 List *create_list(int value);
 void take_input(int *number);
 void take_inputs(List *list);

@@ -14,6 +14,7 @@ void take_inputs(List *list)
 
   while (input != 99)
   {
+    insert_node(list, input);
     take_input(&input);
   }
 }
