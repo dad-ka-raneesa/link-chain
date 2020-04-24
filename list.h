@@ -25,5 +25,6 @@ void take_inputs(List *list);
 void display_list(List *list);
 int search_value(List *list, int value);
 void search_value_in_list(List *list);
+void free_list(List *list);
 
 #endif

@@ -43,3 +43,16 @@ void display_list(List *list)
     p_walk = p_walk->next;
   }
 }
+
+void free_list(List *list)
+{
+  Node *p_walk = list->first;
+  Node *free_element = NULL;
+  while (p_walk != NULL)
+  {
+    free_element = p_walk;
+    p_walk = p_walk->next;
+    free(free_element);
+  }
+  free(list);
+}
