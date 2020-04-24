@@ -14,6 +14,10 @@ typedef struct
   int length;
 } List;
 
+#define INPUT_TEXT "Please enter a number:"
+
 List *create_list(int value);
+void take_input(int *number);
+void take_inputs(List *list);
 
 #endif
