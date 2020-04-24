@@ -33,3 +33,13 @@ List *create_list(int value)
   list->length = 0;
   return list;
 }
+
+void display_list(List *list)
+{
+  Node *p_walk = list->first;
+  while (p_walk != NULL)
+  {
+    printf("%d ", p_walk->value);
+    p_walk = p_walk->next;
+  }
+}

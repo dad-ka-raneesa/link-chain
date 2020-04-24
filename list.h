@@ -21,5 +21,6 @@ void insert_node(List *list, int value);
 List *create_list(int value);
 void take_input(int *number);
 void take_inputs(List *list);
+void display_list(List *list);
 
 #endif
