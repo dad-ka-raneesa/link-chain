@@ -1,21 +1,21 @@
 #include <stdio.h>
 #include "list.h"
 
-void take_input(char *text, int *input)
+void read_value(char *text, int *input)
 {
   printf("%s\n", text);
   scanf("%d", input);
 }
 
-void take_inputs(List *list)
+void read_values(List *list)
 {
   int input = 0;
-  take_input(INPUT_TEXT, &input);
+  read_value(INPUT_TEXT, &input);
 
-  while (input != 99)
+  while (input != HALT_POINT)
   {
     insert_node(list, input);
-    take_input(INPUT_TEXT, &input);
+    read_value(INPUT_TEXT, &input);
   }
 }
 
@@ -34,12 +34,12 @@ int search_value(List *list, int value)
   return index;
 }
 
-void search_value_in_list(List *list)
+void search_values_in_list(List *list)
 {
   int value = 0;
-  take_input(SEARCH_TEXT, &value);
+  read_value(SEARCH_TEXT, &value);
 
-  while (value != -99)
+  while (value != HALT_POINT)
   {
     int index = search_value(list, value);
     if (index > -1)
@@ -50,6 +50,6 @@ void search_value_in_list(List *list)
     {
       printf("%d is not present in the list\n", value);
     }
-    take_input(SEARCH_TEXT, &value);
+    read_value(SEARCH_TEXT, &value);
   }
 }
