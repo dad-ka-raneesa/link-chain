@@ -22,7 +22,7 @@ void take_inputs(List *list)
 int search_value(List *list, int value)
 {
   Node *p_walk = list->first;
-  int index;
+  int index = -1;
   for (int i = 0; i < list->length; i++)
   {
     if (p_walk->value == value)
@@ -42,7 +42,7 @@ void search_value_in_list(List *list)
   while (value != -99)
   {
     int index = search_value(list, value);
-    if (index >= 0 && index < list->length)
+    if (index > -1)
     {
       printf("%d is present in the list at position %d\n", value, index);
     }
