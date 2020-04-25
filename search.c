@@ -22,17 +22,17 @@ void read_values(List *list)
 int search_value(List *list, int value)
 {
   Node *p_walk = list->first;
-  int index = -1;
+  int position = -1;
   for (int i = 0; i < list->length; i++)
   {
     if (p_walk->value == value)
     {
-      index = i;
+      position = i;
       break;
     }
     p_walk = p_walk->next;
   }
-  return index;
+  return position;
 }
 
 void search_values_in_list(List *list)
@@ -42,10 +42,10 @@ void search_values_in_list(List *list)
 
   while (value != HALT_POINT)
   {
-    int index = search_value(list, value);
-    if (index > -1)
+    int position = search_value(list, value);
+    if (position > -1)
     {
-      printf("%d is present in the list at position %d\n", value, index);
+      printf("%d is present in the list at position %d\n", value, position);
     }
     else
     {
