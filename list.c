@@ -37,17 +37,17 @@ List *create_list(void)
 int search_position(List *list, int value)
 {
   Node *p_walk = list->first;
-  int position = -1;
-  for (unsigned i = 0; p_walk != NULL; i++)
+  int position = 0;
+  while (p_walk != NULL)
   {
     if (p_walk->value == value)
     {
-      position = i;
-      break;
+      return position;
     }
     p_walk = p_walk->next;
+    position++;
   }
-  return position;
+  return -1;
 }
 
 void display_list(List *list)
