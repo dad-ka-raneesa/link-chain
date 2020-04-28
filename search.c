@@ -7,6 +7,7 @@
 
 void read_value(char *text, int *number);
 void read_values(List *list);
+void print_search_result(int value, int position);
 void search_values_in_list(List *list);
 
 void read_value(char *text, int *value)
@@ -27,6 +28,18 @@ void read_values(List *list)
   }
 }
 
+void print_search_result(int value, int position)
+{
+  if (position == -1)
+  {
+    printf("%d is not present in the list\n", value);
+  }
+  else
+  {
+    printf("%d is present in the list at position %d\n", value, position);
+  }
+}
+
 void search_values_in_list(List *list)
 {
   int value = 0;
@@ -35,14 +48,7 @@ void search_values_in_list(List *list)
   while (value != HALT_POINT)
   {
     int position = search_position(list, value);
-    if (position > -1)
-    {
-      printf("%d is present in the list at position %d\n", value, position);
-    }
-    else
-    {
-      printf("%d is not present in the list\n", value);
-    }
+    print_search_result(value, position);
     read_value(SEARCH_TEXT, &value);
   }
 }

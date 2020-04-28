@@ -63,12 +63,12 @@ void display_list(List *list)
 void free_list(List *list)
 {
   Node *p_walk = list->first;
-  Node *current_node = NULL;
+  Node *node_to_free = NULL;
   while (p_walk != NULL)
   {
-    current_node = p_walk;
+    node_to_free = p_walk;
     p_walk = p_walk->next;
-    free(current_node);
+    free(node_to_free);
   }
   free(list);
 }
