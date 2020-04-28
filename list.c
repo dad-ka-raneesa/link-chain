@@ -25,13 +25,29 @@ void insert_node(List *list, int value)
   list->length++;
 }
 
-List *create_list(int value)
+List *create_list(void)
 {
   List *list = malloc(sizeof(List));
   list->first = NULL;
   list->last = NULL;
   list->length = 0;
   return list;
+}
+
+int search_position(List *list, int value)
+{
+  Node *p_walk = list->first;
+  int position = -1;
+  for (unsigned i = 0; p_walk != NULL; i++)
+  {
+    if (p_walk->value == value)
+    {
+      position = i;
+      break;
+    }
+    p_walk = p_walk->next;
+  }
+  return position;
 }
 
 void display_list(List *list)
@@ -47,12 +63,12 @@ void display_list(List *list)
 void free_list(List *list)
 {
   Node *p_walk = list->first;
-  Node *free_element = NULL;
+  Node *current_node = NULL;
   while (p_walk != NULL)
   {
-    free_element = p_walk;
+    current_node = p_walk;
     p_walk = p_walk->next;
-    free(free_element);
+    free(current_node);
   }
   free(list);
 }

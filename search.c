@@ -1,6 +1,14 @@
 #include <stdio.h>
 #include "list.h"
 
+#define HALT_POINT -99
+#define INPUT_TEXT "Please enter a number:"
+#define SEARCH_TEXT "\nWhat number would you like to search for?"
+
+void read_value(char *text, int *number);
+void read_values(List *list);
+void search_values_in_list(List *list);
+
 void read_value(char *text, int *value)
 {
   printf("%s\n", text);
@@ -19,22 +27,6 @@ void read_values(List *list)
   }
 }
 
-int search_value(List *list, int value)
-{
-  Node *p_walk = list->first;
-  int position = -1;
-  for (int i = 0; i < list->length; i++)
-  {
-    if (p_walk->value == value)
-    {
-      position = i;
-      break;
-    }
-    p_walk = p_walk->next;
-  }
-  return position;
-}
-
 void search_values_in_list(List *list)
 {
   int value = 0;
@@ -42,7 +34,7 @@ void search_values_in_list(List *list)
 
   while (value != HALT_POINT)
   {
-    int position = search_value(list, value);
+    int position = search_position(list, value);
     if (position > -1)
     {
       printf("%d is present in the list at position %d\n", value, position);
@@ -53,4 +45,13 @@ void search_values_in_list(List *list)
     }
     read_value(SEARCH_TEXT, &value);
   }
+}
+
+int main(void)
+{
+  List *list = create_list();
+  read_values(list);
+  search_values_in_list(list);
+  free_list(list);
+  return 0;
 }
